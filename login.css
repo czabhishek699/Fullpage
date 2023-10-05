@@ -37,3 +37,16 @@ input, button {
 .hidden {
     display: none;
   }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('ojha.jpg'); /* Replace 'your-image-url.jpg' with the URL or file path of your image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
