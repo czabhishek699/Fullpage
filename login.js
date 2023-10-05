@@ -1,41 +1,39 @@
- // Get references to the username, password, and login button elements
-const usernameInput = document.getElementById("username");
-const passwordInput = document.getElementById("password");
-const loginButton = document.getElementById("login-button");
+// Simulated valid username and password
+const validUsername = "czabhishek";
+const validPassword = "82025840";
 
-// Get a reference to the popup and popup message elements
-const popup = document.getElementById("popup");
-const popupMessage = document.getElementById("popup-message");
-const popupCloseButton = document.getElementById("popup-close-button");
+// Function to handle login
+function handleLogin() {
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
 
-// Define the correct username and password
-const correctUsername = "czabhishek";
-const correctPassword = "82025840";
-
-// Add a click event listener to the login button
-loginButton.addEventListener("click", function () {
-    // Get the values entered by the user
     const enteredUsername = usernameInput.value;
     const enteredPassword = passwordInput.value;
 
-    // Check if the entered username and password match the correct values
-    if (enteredUsername === correctUsername && enteredPassword === correctPassword) {
-        // If they match, redirect to the main webpage
-        window.location.href = "main.html"; // Change "main.html" to the URL of your main webpage
+    // Check if entered username and password match the valid ones
+    if (enteredUsername === validUsername && enteredPassword === validPassword) {
+        // Successful login, redirect to an external website
+        window.location.href = "https://avishekojha.com.np";
     } else {
-        // If they don't match, display an error message
+        // Invalid login, display an error message
+        const popup = document.getElementById("popup");
+        const popupMessage = document.getElementById("popup-message");
         popupMessage.textContent = "Invalid Username or Password. Please try again.";
-        // Display the popup
         popup.classList.remove("hidden");
     }
-});
+}
 
-// Add a click event listener to the popup close button
+// Add event listener to the login button
+const loginButton = document.getElementById("login-button");
+loginButton.addEventListener("click", handleLogin);
+
+// Add event listener to the popup close button
+const popupCloseButton = document.getElementById("popup-close-button");
 popupCloseButton.addEventListener("click", function () {
-    // Hide the popup
+    const popup = document.getElementById("popup");
     popup.classList.add("hidden");
 
     // Clear the input fields
-    usernameInput.value = "";
-    passwordInput.value = "";
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
 });
